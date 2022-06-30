@@ -2,7 +2,12 @@ class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update]
   skip_before_action :authenticate_user!
   def index
+    fav = []
     @restaurants = Restaurant.all
+    @restaurants.each do |restaurant|
+      fav << Favorite.where(restaurant: restaurant, user: current_user)
+    end
+    @favorites = fav
   end
 
   def show

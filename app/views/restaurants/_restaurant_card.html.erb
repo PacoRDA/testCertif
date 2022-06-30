@@ -6,6 +6,11 @@
       <h2><%= restaurant.name %></h2>
       <p><%= restaurant.description %></p>
     </div>
+      <% if restaurant.favorite?(current_user) %>
+        <h4>Coeur</h4>
+      <% else %>
+        <h4>pas coeur</h4>
+      <% end %>
     <h2 class="card-trip-pricing"><%= restaurant.phone_number %></h2>
     <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
   </div>
