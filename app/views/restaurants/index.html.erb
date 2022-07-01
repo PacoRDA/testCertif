@@ -1,0 +1,4 @@
+<h1>Nos restaurants</h1>
+<% @restaurants.each do |restaurant|%>
+  <%= render 'restaurant_card', restaurant: restaurant %>
+<% end %>
