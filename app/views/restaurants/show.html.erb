@@ -3,3 +3,4 @@
 <h3><%= @restaurant.address %></h3>
 <%= @restaurant.description %>
 <%= link_to "Modifier", edit_restaurant_path(@restaurant) %>
+<%= link_to "Ajouter aux favoris", restaurant_favorites_path(@restaurant), method: "POST" %>
