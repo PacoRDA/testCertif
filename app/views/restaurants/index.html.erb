@@ -1,4 +1,6 @@
 <h1>Nos restaurants</h1>
+<div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-4/5 mx-auto gap-3">
 <% @restaurants.each do |restaurant|%>
-  <%= render 'restaurant_card', restaurant: restaurant %>
-<% end %>
+  <%= render 'restaurant_card', restaurant: restaurant, class: 'w-full' %>
+  <% end %>
+</div>
