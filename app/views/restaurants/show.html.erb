@@ -2,6 +2,8 @@
 <h2><%= @restaurant.phone_number %></h2>
 <h3><%= @restaurant.address %></h3>
 <%= @restaurant.description %>
+<%= @restaurant.rating %>
+
 <%= cl_image_tag @restaurant.photo.key, height: 300, width: 400, crop: :fill %>
 
 <%= link_to "Modifier", edit_restaurant_path(@restaurant) %>
@@ -17,3 +19,18 @@
     <% end %>
   </div>
 </div>
+
+<div class="container">
+  <div class="review">
+    <h2>Laissez une évaluation</h2>
+    <%= simple_form_for [@reservation, Rating.new] do |f| %>
+      <%= f.input :review %>
+      <%= f.input :rate, collection: [1, 2, 3, 4, 5],
+                  include_blank: false %>
+      <%= f.submit class: "btn btn-primary", value: "Valider" %>
+    <% end %>
+  </div>
+</div>
+
+<% console %>
+

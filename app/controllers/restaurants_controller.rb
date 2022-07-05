@@ -12,6 +12,10 @@ class RestaurantsController < ApplicationController
 
   def show
     @reservation = Reservation.new
+    @rating = Rating.new
+
+    @ratings = @restaurant.ratings
+    @average_rating = @ratings.average(:rate)
   end
 
   def new
