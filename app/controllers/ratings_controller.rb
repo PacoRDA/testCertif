@@ -1,10 +1,10 @@
 class RatingsController < ApplicationController
   def create
-    @reservation = Reservation.find(params[:reservation_id])
     @rating = Rating.new(rating_params)
-    @rating.reservations_id = @reservation.id
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @rating.restaurant = @restaurant
     if @rating.save
-      redirect_to restaurant_path(@reservation.restaurant)
+      redirect_to restaurant_path(@restaurant)
     else
       redirect_to restaurants_path
     end

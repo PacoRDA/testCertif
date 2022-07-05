@@ -61,10 +61,10 @@ ActiveRecord::Schema.define(version: 2022_07_05_090943) do
   create_table "ratings", force: :cascade do |t|
     t.integer "rate"
     t.text "review"
-    t.bigint "reservations_id", null: false
+    t.bigint "restaurant_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["reservations_id"], name: "index_ratings_on_reservations_id"
+    t.index ["restaurant_id"], name: "index_ratings_on_restaurant_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -83,7 +83,6 @@ ActiveRecord::Schema.define(version: 2022_07_05_090943) do
     t.string "address"
     t.string "phone_number"
     t.string "description"
-    t.float "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "category_id"
@@ -108,7 +107,7 @@ ActiveRecord::Schema.define(version: 2022_07_05_090943) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "favorites", "restaurants"
   add_foreign_key "favorites", "users"
-  add_foreign_key "ratings", "reservations", column: "reservations_id"
+  add_foreign_key "ratings", "restaurants"
   add_foreign_key "reservations", "restaurants"
   add_foreign_key "reservations", "users"
   add_foreign_key "restaurants", "categories"

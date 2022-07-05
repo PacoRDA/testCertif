@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :restaurants, except: :destroy do
     resources :favorites, only: [:create, :destroy]
-    resources :reservations, shallow: true, only: [:create, :update, :destroy, :show] do
-      resources :ratings, only: [:create]
-    end
+    resources :reservations, only: [:create, :update, :destroy, :show]
+    resources :ratings, only: [:create]
   end
 end

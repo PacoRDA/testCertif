@@ -15,7 +15,7 @@ class RestaurantsController < ApplicationController
     @rating = Rating.new
 
     @ratings = @restaurant.ratings
-    @average_rating = @ratings.average(:rate)
+    # @average_rating = @ratings.average(:rate)
   end
 
   def new
